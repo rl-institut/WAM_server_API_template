@@ -3,19 +3,21 @@ Template repository for creating new projects under the RLI's umbrella
 
 ## Get started
 
-Simply click on the green `Use this template` button on the left of the `Clone or download` button.
+Run `sudo docker-compose up -d --build` to run the task queue and the webapp simulaneously.
 
-The detailed instructions to create a new repository from this template can be found [here](https://help.github.com/en/articles/creating-a-repository-from-a-template).
+Run `sudo docker-compose down` to shut the services down
 
-## src folder
+## Develop while services are running
 
-This folder is where you should place the code of your package (package name to be edited in `setup.py` under name)
+You have to start redis-server
+`service redis-server start`
+(to stop it use `service redis-server stop`)
+Move to `task_queue` and run `. setup_redis.sh` to start the celery queue with redis a message
+ broker.
 
-You can install it locally for developing with
+In another terminal go the the root of the repo and run `python index.py`
 
-    python setup.py install
-    
-More details for packaging are available on [https://packaging.python.org](https://packaging.python.org/tutorials/packaging-projects/)
+Now the flask app is available at `127.0.0.1:5000`
 
 
 ## Docs
