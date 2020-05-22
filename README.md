@@ -3,20 +3,44 @@ Template repository for creating new projects under the RLI's umbrella
 
 ## Get started
 
-Simply click on the green `Use this template` button on the left of the `Clone or download` button.
+Run `sudo docker-compose up -d --build` to run the task queue and the webapp simulaneously.
 
-The detailed instructions to create a new repository from this template can be found [here](https://help.github.com/en/articles/creating-a-repository-from-a-template).
+Run `sudo docker-compose down` to shut the services down
 
-## src folder
+## Develop while services are running
 
-This folder is where you should place the code of your package (package name to be edited in `setup.py` under name)
+### Using [redis](https://redis.io/documentation)
 
-You can install it locally for developing with
+You have to start redis-server
+`service redis-server start`
+(to stop it use `service redis-server stop`)
+Move to `task_queue` and run `. setup_redis.sh` to start the celery queue with redis a message
+ broker.
 
-    python setup.py install
-    
-More details for packaging are available on [https://packaging.python.org](https://packaging.python.org/tutorials/packaging-projects/)
+### Using [RabbitMQ](https://www.rabbitmq.com/getstarted.html)
 
+
+### Using [flask](https://fastapi.tiangolo.com/)
+
+In another terminal go the the root of the repo and run `python flask_run.py`
+
+Now the flask app is available at `127.0.0.1:5001`
+
+### Using [fastapi](https://fastapi.tiangolo.com/)
+
+In another terminal go the the root of the repo and run `. fastapi_run.sh`
+
+Now the flask app is available at `127.0.0.1:5001`
+
+While docker runs :
+https://vsupalov.com/rebuilding-docker-image-development/
+
+RabbitMQ:
+https://www.rabbitmq.com/getstarted.html
+
+https://riptutorial.com/flask/example/5831/return-a-json-response-from-flask-api
+
+https://docs.celeryproject.org/en/3.1/getting-started/first-steps-with-celery.html#application
 
 ## Docs
 
