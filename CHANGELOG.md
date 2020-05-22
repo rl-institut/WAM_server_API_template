@@ -25,8 +25,12 @@ Here is a template for new release sections
 - fastapi app (#1)
 
 ### Changed
+- requirements.txt (#2)
+- environment.yml (#2)
 
 ### Removed
+- pylint dependency (#2)
+- setup.py (#2)
 
 
 
