@@ -1,22 +1,51 @@
-# rli_template
-Template repository for creating new projects under the RLI's umbrella
+# WAM_server_API_template
+Template repository for creating API server to dispatch simulation tasks to a queue of workers.
+The API typically recieves a post request with a json input file, sends this file to a parser which
+initiate a long simulation (like [oemof](https://github.com/oemof/oemof)). Once the simulation
+ is done a json response is sent back. The json results can also be retrieved with the task id.
 
 ## Get started
 
-Simply click on the green `Use this template` button on the left of the `Clone or download` button.
+Run `sudo docker-compose up -d --build` to run the task queue and the webapp simulaneously.
 
-The detailed instructions to create a new repository from this template can be found [here](https://help.github.com/en/articles/creating-a-repository-from-a-template).
+Now the webapp is available at `127.0.0.1:5001`
 
-## src folder
+Run `sudo docker-compose down` to shut the services down.
 
-This folder is where you should place the code of your package (package name to be edited in `setup.py` under name)
+## Develop while services are running
 
-You can install it locally for developing with
+### Using [redis](https://redis.io/documentation)
 
-    python setup.py install
-    
-More details for packaging are available on [https://packaging.python.org](https://packaging.python.org/tutorials/packaging-projects/)
+You have to start redis-server
+`service redis-server start`
+(to stop it use `service redis-server stop`)
+Move to `task_queue` and run `. setup_redis.sh` to start the celery queue with redis a message
+ broker.
 
+### Using [RabbitMQ](https://www.rabbitmq.com/getstarted.html)
+
+
+### Using [flask](https://fastapi.tiangolo.com/)
+
+In another terminal go the the root of the repo and run `python flask_run.py`
+
+Now the flask app is available at `127.0.0.1:5001`
+
+### Using [fastapi](https://fastapi.tiangolo.com/)
+
+In another terminal go the the root of the repo and run `. fastapi_run.sh`
+
+Now the flask app is available at `127.0.0.1:5001`
+
+While docker runs :
+https://vsupalov.com/rebuilding-docker-image-development/
+
+RabbitMQ:
+https://www.rabbitmq.com/getstarted.html
+
+https://riptutorial.com/flask/example/5831/return-a-json-response-from-flask-api
+
+https://docs.celeryproject.org/en/3.1/getting-started/first-steps-with-celery.html#application
 
 ## Docs
 
@@ -36,9 +65,5 @@ The output will then be located in `docs/_build/html` and can be opened with you
 
 ## Code linting
 
-In this template, 3 possible linters are proposed:
-- flake8 only sends warnings and error about linting (PEP8)
-- pylint sends warnings and error about linting (PEP8) and also allows warning about imports order
-- black sends warning but can also fix the files for you
+Use `black .` to lint the python files inside the repo
 
-You can perfectly use the 3 of them or subset, at your preference. Don't forget to edit `.travis.yml` if you want to desactivate the automatic testing of some linters!

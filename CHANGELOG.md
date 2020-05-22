@@ -16,15 +16,32 @@ Here is a template for new release sections
 ### Removed
 -
 ```
+## [0.1.0] - 2020-05-21
+
+### Added
+- docker-compose file (#1)
+- celery service (#1)
+- flask app (#1)
+- fastapi app (#1)
+
+### Changed
+- requirements.txt (#2)
+- environment.yml (#2)
+
+### Removed
+- pylint dependency (#2)
+- setup.py (#2)
+
 ## [Unreleased]
 
 ### Added
-- one thing
+
 
 ### Changed
-- another thing
+
 
 ### Removed
-- yet another thing
+
+
 
 
