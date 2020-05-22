@@ -19,12 +19,14 @@ Here is a template for new release sections
 ## [Unreleased]
 
 ### Added
-- one thing
+- docker-compose file (#1)
+- celery service (#1)
+- flask app (#1)
+- fastapi app (#1)
 
 ### Changed
-- another thing
 
 ### Removed
-- yet another thing
+
 
 
