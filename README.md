@@ -9,16 +9,38 @@ Run `sudo docker-compose down` to shut the services down
 
 ## Develop while services are running
 
+### Using [redis](https://redis.io/documentation)
+
 You have to start redis-server
 `service redis-server start`
 (to stop it use `service redis-server stop`)
 Move to `task_queue` and run `. setup_redis.sh` to start the celery queue with redis a message
  broker.
 
-In another terminal go the the root of the repo and run `python index.py`
+### Using [RabbitMQ](https://www.rabbitmq.com/getstarted.html)
 
-Now the flask app is available at `127.0.0.1:5000`
 
+### Using [flask](https://fastapi.tiangolo.com/)
+
+In another terminal go the the root of the repo and run `python flask_run.py`
+
+Now the flask app is available at `127.0.0.1:5001`
+
+### Using [fastapi](https://fastapi.tiangolo.com/)
+
+In another terminal go the the root of the repo and run `. fastapi_run.sh`
+
+Now the flask app is available at `127.0.0.1:5001`
+
+While docker runs :
+https://vsupalov.com/rebuilding-docker-image-development/
+
+RabbitMQ:
+https://www.rabbitmq.com/getstarted.html
+
+https://riptutorial.com/flask/example/5831/return-a-json-response-from-flask-api
+
+https://docs.celeryproject.org/en/3.1/getting-started/first-steps-with-celery.html#application
 
 ## Docs
 
