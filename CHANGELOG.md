@@ -16,7 +16,7 @@ Here is a template for new release sections
 ### Removed
 -
 ```
-## [Unreleased]
+## [0.1.0] - 2020-05-21
 
 ### Added
 - docker-compose file (#1)
@@ -31,6 +31,17 @@ Here is a template for new release sections
 ### Removed
 - pylint dependency (#2)
 - setup.py (#2)
+
+## [Unreleased]
+
+### Added
+
+
+### Changed
+
+
+### Removed
+
 
 
 
