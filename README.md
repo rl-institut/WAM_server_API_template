@@ -1,11 +1,16 @@
-# rli_template
-Template repository for creating new projects under the RLI's umbrella
+# WAM_server_API_template
+Template repository for creating API server to dispatch simulation tasks to a queue of workers.
+The API typically recieves a post request with a json input file, sends this file to a parser which
+initiate a long simulation (like [oemof](https://github.com/oemof/oemof)). Once the simulation
+ is done a json response is sent back. The json results can also be retrieved with the task id.
 
 ## Get started
 
 Run `sudo docker-compose up -d --build` to run the task queue and the webapp simulaneously.
 
-Run `sudo docker-compose down` to shut the services down
+Now the webapp is available at `127.0.0.1:5001`
+
+Run `sudo docker-compose down` to shut the services down.
 
 ## Develop while services are running
 
@@ -60,9 +65,5 @@ The output will then be located in `docs/_build/html` and can be opened with you
 
 ## Code linting
 
-In this template, 3 possible linters are proposed:
-- flake8 only sends warnings and error about linting (PEP8)
-- pylint sends warnings and error about linting (PEP8) and also allows warning about imports order
-- black sends warning but can also fix the files for you
+Use `black .` to lint the python files inside the repo
 
-You can perfectly use the 3 of them or subset, at your preference. Don't forget to edit `.travis.yml` if you want to desactivate the automatic testing of some linters!
